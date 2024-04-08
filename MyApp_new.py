@@ -41,6 +41,29 @@ raw_data["City"]=le.fit_transform(raw_data["City"])
 raw_data["Gender"]=le.fit_transform(raw_data["Gender"])
 raw_data["EverBenched"]=le.fit_transform(raw_data["EverBenched"])
 
+def age_to_group(age):
+  """
+  แปลงอายุเป็นกลุ่มอายุ
+
+  Args:
+    age (int): อายุ
+
+  Returns:
+    int: กลุ่มอายุ (1, 2, 3)
+  """
+  age_ranges = [(20, 30), (31, 40), (41, 50)]
+  for i, (min_age, max_age) in enumerate(age_ranges, start=1):
+    if min_age <= age <= max_age:
+      return i
+
+# แปลงข้อมูลอายุ
+raw_data["AgeGroup"] = raw_data["Age"].apply(age_to_group)
+
+del raw_data["Age"]
+
+# แสดงผลลัพธ์
+print(raw_data)
+
 st.write(raw_data.head(10))
 
 html_3 = """
