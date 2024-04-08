@@ -92,7 +92,7 @@ if st.button("ทำนายผล"):
     X= raw_data.drop(columns='LeaveOrNot')
     y=raw_data['LeaveOrNot']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=20, test_size=0.3)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=10, test_size=0.3)
 
     rf_model = RandomForestClassifier()
     rf_model.fit(X, y)
