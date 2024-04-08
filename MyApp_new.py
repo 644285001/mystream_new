@@ -79,10 +79,10 @@ s1 = st.number_input("กรุณาเลือกข้อมูล Education
 s2 = st.slider("กรุณาเลือกข้อมูล JoiningYear",2012,2018)
 s3 = st.number_input("กรุณาเลือกข้อมูล City", step=1, format="%d")
 s4 = st.number_input("กรุณาเลือกข้อมูล PaymentTier", step=1, format="%d")
-s5 = st.number_input("กรุณาเลือกข้อมูล Age", step=1, format="%d")
 s6 = st.number_input("กรุณาเลือกข้อมูล Gender", step=1, format="%d")
 s7 = st.number_input("กรุณาเลือกข้อมูล EverBenched", step=1, format="%d")
 s8 = st.number_input("กรุณาเลือกข้อมูล ExperienceInCurrentDomain", step=1, format="%d")
+s9 = st.number_input("กรุณาเลือกข้อมูล AgeGroup", step=1, format="%d")
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -98,7 +98,7 @@ if st.button("ทำนายผล"):
     rf_model.fit(X, y)
 
     #ข้อมูล input สำหรับทดลองจำแนกข้อมูล
-    x_input = np.array([[s1, s2, s3, s4, s5, s6, s7, s8]])
+    x_input = np.array([[s1, s2, s3, s4, s6, s7, s8, s9]])
     st.write(rf_model.predict(x_input))
     out=rf_model.predict(x_input)
 
